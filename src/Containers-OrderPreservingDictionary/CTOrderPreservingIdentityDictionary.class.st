@@ -1,5 +1,21 @@
 "
-An IdentityDictionary version that uses == instead of = for key comparing.
+I am an IdentityDictionary version that uses == instead of = for key comparing. That means I consider two keys to be equal only if they are the same object.
+
+I'm also returning default value instead of raising an error. See CTOrderPreservingDictionary comment for an example.
+
+Example:
+
+| firstObject secondObject dict |
+   firstObject  := Object new.
+	dict := CTOrderPreservingIdentityDictionary new.
+   dict
+		at: firstObject put: 1.
+	dict
+		 at: firstObject put: 3.  ""this will override the value at firstObject key (keys are same Object)""
+	secondObject := Object new.  ""if we want to add new value we need to create new Object key""
+	dict 
+		at: secondObject put: 4.
+	dict >>> ' a CTOrderPreservingIdentityDictionary(an Object->3 an Object->4)->'
 "
 Class {
 	#name : #CTOrderPreservingIdentityDictionary,

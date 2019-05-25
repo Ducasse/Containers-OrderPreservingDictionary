@@ -1,5 +1,10 @@
 "
-An IdentityDictionary version that uses == instead of = for key comparing.
+I'm an IdentityDictionary version that uses == instead of = for key comparing.That means I consider two keys to be equal only if they are the same object. 
+
+If I try to access key that doesn't exist an error is raised. See CTStandardOrderedDictionary comment for an example.
+
+See CTOrderPreservingIdentityDictionary comment for an example.
+
 "
 Class {
 	#name : #CTStandardOrderedIdentityDictionary,

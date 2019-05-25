@@ -7,6 +7,23 @@ For example, the printing is using the insertion order
 
 	CTStandardOrderedDictionary orderedDictionaryABC printString 
 	>>> 'a CTStandardOrderedDictionary(#A->''A'' #B->''B'' #C->''C'')'
+
+I work mainly as a Dictionary except that I also store keys in an Array to keep track of the order of elements.
+	
+If I try to access key that doesn't exist an error is raised.
+
+| dict |
+dict := CTStandardOrderedDictionary new. 
+dict at: #missing
+>>> KeyNotFound 
+	
+Internal Representation and Key Implementation Points.
+
+   Instance Variables
+	dictionary:			<Dictionary>		A dictionary where I store my keys and values.
+	orderedKeys:		   <Array>			An ordered collection where I store my keys to maintain the order.
+						
+I am based on OrderedDictionary from Collections-Sequenceable. Some of my methods are rewritten to use cull: so I'm not sure if I'm portable Gemstone.
 "
 Class {
 	#name : #CTStandardOrderedDictionary,

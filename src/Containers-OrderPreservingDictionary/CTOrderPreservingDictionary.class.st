@@ -1,6 +1,5 @@
 "
-By default, when CTOrderPreservingDictionaryionary raises an exception. 
-I'm a special kind of order-preserving dictionary that returns a configurable default value (nil by default) instead of raising an exception. 
+I'm a special kind of order-preserving dictionary that returns a configurable default value (nil by default) instead of raising an error. 
 
 | dict |
 dict := CTOrderPreservingDictionary new. 
