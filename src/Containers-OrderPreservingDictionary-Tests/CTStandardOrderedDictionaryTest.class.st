@@ -1201,11 +1201,19 @@ CTStandardOrderedDictionaryTest >> testOccurancesOf [
 ]
 
 { #category : #tests }
-CTStandardOrderedDictionaryTest >> testPrintElementsOn [ 
-	| str |
+CTStandardOrderedDictionaryTest >> testPrintElementsOn [
+	| str dict|
+	
+	dict := CTStandardOrderedDictionary  new. 
+	dict at: 'A' put: 'a'.
+	dict at: 'B' put: 'b'.
+	dict at: 'C' put: 'c'.
 	str := String new writeStream.
-	self dictionaryWithOrderedAssociations printElementsOn: str.
-	self assert: (str contents = '(''testKey''->''testValue'' ''testKey3''->''testValue3'' ''testKey2''->''testValue2'' ''testKey4''->''testValue4'')')
+	dict printElementsOn: str. 
+	self assert: (str contents) equals: '(''A''->''a'' ''B''->''b'' ''C''->''c'')' 
+
+
+	
 ]
 
 { #category : #tests }
