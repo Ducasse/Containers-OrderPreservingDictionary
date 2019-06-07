@@ -1206,8 +1206,6 @@ CTStandardOrderedDictionaryTest >> testPrintElementsOn [
 	str := String new writeStream.
 	self dictionaryWithOrderedAssociations printElementsOn: str.
 	self assert: (str contents = '(''testKey''->''testValue'' ''testKey3''->''testValue3'' ''testKey2''->''testValue2'' ''testKey4''->''testValue4'')')
-	
-
 ]
 
 { #category : #tests }
