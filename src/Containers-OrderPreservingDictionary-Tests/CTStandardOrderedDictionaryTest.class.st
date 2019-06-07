@@ -1201,6 +1201,16 @@ CTStandardOrderedDictionaryTest >> testOccurancesOf [
 ]
 
 { #category : #tests }
+CTStandardOrderedDictionaryTest >> testPrintElementsOn [ 
+	| str |
+	str := String new writeStream.
+	self dictionaryWithOrderedAssociations printElementsOn: str.
+	self assert: (str contents = '(''testKey''->''testValue'' ''testKey3''->''testValue3'' ''testKey2''->''testValue2'' ''testKey4''->''testValue4'')')
+	
+
+]
+
+{ #category : #tests }
 CTStandardOrderedDictionaryTest >> testRemoveAll [
 	| dictionary removedKeys |
 
@@ -1214,6 +1224,12 @@ CTStandardOrderedDictionaryTest >> testRemoveAll [
 		self
 			assertKey: each
 			wasRemovedfrom: dictionary].
+]
+
+{ #category : #tests }
+CTStandardOrderedDictionaryTest >> testRemoveIfAbsentRaisesException [
+   self should: [self dictionaryWithOrderedAssociations remove: 1 ifAbsent: [2]]
+    raise: ShouldNotImplement
 ]
 
 { #category : #tests }
