@@ -1,10 +1,18 @@
 "
-I am an order-preserving dictionary for strings that returns empty strings instead of raising errors when absent keys/values are accessed.
+I am an OrderPreservingDictionary that returns '' (an empty string) as a default value. In CTOrderPreservingDictionary you can set your own default value, I always return an empty string as  a default value.
 
-| dict |
-dict := CTOrderPreservingStringDictionary new. 
-dict at: #missing
->>> ''
+	| dict |
+	dict := CTOrderPreservingStringDictionary new. 
+	dict at: #missing
+	>>> ''
+
+I can use any data types, not just Strings as my keys and values: 
+
+	| strDict |
+ 	strDict  := CTOrderPreservingStringDictionary new. 
+ 	strDict at: 1 put: 10.
+ 	strDict at: 2 put: 20.
+ 	strDict  >>> 'a CTOrderPreservingStringDictionary(1->10 2->20)'
 "
 Class {
 	#name : #CTOrderPreservingStringDictionary,

@@ -3,19 +3,28 @@ This class is a dictionary that uses key insertion order when enumerating, print
 
 Insertion, updating, and inclusion testing have O(1) complexity while removing has O(n) worst-case.
 
-For example, the printing is using the insertion order 
+Key insertion order remains the same even when we are updating previously added values. Same key insertion  order is kept in all subclasses of this class.
+
+	| dict |
+	dict := CTOrderPreservingDictionary new. 
+	dict at: 1 put: 'first'.
+	dict at: 2 put: 'second'.
+	dict at: 1 put: 'another first'.
+	dict >>> ' a CTOrderPreservingDictionary(1->''another first'' 2->''second'')'
+
+Printing is also using the insertion order 
 
 	CTStandardOrderedDictionary orderedDictionaryABC printString 
 	>>> 'a CTStandardOrderedDictionary(#A->''A'' #B->''B'' #C->''C'')'
 
 I work mainly as a Dictionary except that I also store keys in an Array to keep track of the order of elements.
 	
-If I try to access key that doesn't exist an error is raised.
+If I try to access key that doesn't exist an error is raised. The same is the case in all StandardOrdered dictionaries. This makes me different from OrderPreserving dictionaries which all return default value.
 
-| dict |
-dict := CTStandardOrderedDictionary new. 
-dict at: #missing
->>> KeyNotFound 
+	| dict |
+	dict := CTStandardOrderedDictionary new. 
+	dict at: #missing
+	>>> KeyNotFound 
 	
 Internal Representation and Key Implementation Points.
 
@@ -23,7 +32,7 @@ Internal Representation and Key Implementation Points.
 	dictionary:			<Dictionary>		A dictionary where I store my keys and values.
 	orderedKeys:		   <Array>			An ordered collection where I store my keys to maintain the order.
 						
-I am based on OrderedDictionary from Collections-Sequenceable. Some of my methods are rewritten to use cull: so I'm not sure if I'm portable Gemstone.
+I am based on OrderedDictionary from Collections-Sequenceable. Some of my methods are rewritten to use cull: and ifAbsent: instead of ifPresent: with idea to be portable to GS.
 "
 Class {
 	#name : #CTStandardOrderedDictionary,

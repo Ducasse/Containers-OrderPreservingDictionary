@@ -1,19 +1,11 @@
 "
-I am an IdentityDictionary version that uses == instead of = for String key comparing. That means I consider two keys to be equal only if they are the same object. 
+I am an OrderPreservingStringDictionary that returns '' (an empty string) as a default value instead of raising an error. I will always return '' (an empty string) as a default value.
 
-I also returns empty strings instead of raising errors when absent keys/values are accessed. See CTOrderPreservingStringDictionary comment for example.
+Identity means I use identity comparison (==) on my keys instead of equality. See CTOrderPresesrvingIdentityDictionary for example on using (==) comaprison
 
-Example:
 
-| dict firstKey secondKey|
 
-dict := CTOrderPreservingIdentityStringDictionary new. 
-firstKey := 'First'.
-dict at: firstKey put: 2.
-dict at: firstKey put: 3.  ""new key-value won't be created, we will override the old value at firstKey""
-secondKey := 'Second'.     ""if we want to add new value to dict we must use new String key ""
-dict at: secondKey put: 3. 
-dict >>> 'a CTOrderPreservingIdentityStringDictionary(''First''->3 ''Second''->3)'
+
 
 "
 Class {

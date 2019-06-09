@@ -1,5 +1,5 @@
 "
-I'm a special kind of order-preserving dictionary that returns a configurable default value (nil by default) instead of raising an error. 
+I keep the same order as CTStandardOrderedDictionary. I return a configurable default value (nil by default) unlike StandardOrderedDictionary raises an error. 
 
 | dict |
 dict := CTOrderPreservingDictionary new. 

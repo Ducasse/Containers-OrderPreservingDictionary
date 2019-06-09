@@ -1,9 +1,12 @@
 "
-I'm an IdentityDictionary version that uses == instead of = for key comparing.That means I consider two keys to be equal only if they are the same object. 
+StandardOrdered means that If I try to access key that doesn't exist an error is raised. See CTStandardOrderedDictionary comment for an example.
 
-If I try to access key that doesn't exist an error is raised. See CTStandardOrderedDictionary comment for an example.
+Identity means that I use identity comparison (==) on my keys instead of equality.I consider two keys to be equal only if they are the same object. See CTOrderPreservingIdentityDictionary comment for an example.
 
-See CTOrderPreservingIdentityDictionary comment for an example.
+
+
+
+
 
 "
 Class {
